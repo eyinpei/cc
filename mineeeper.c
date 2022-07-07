@@ -3,15 +3,18 @@
 #include<math.h>
 #include <malloc.h> 
 
-
 int main(){
     int n,m;
     char str[100][100];
+    int field = 1;
     
     while(~scanf("%d %d",&n,&m)){
+        getchar();
         if(n==0&&m==0){
             break;
         }
+
+        
 
         else{
             for(int i = 0;i <n;i++){                        //输入扫雷地图
@@ -20,16 +23,12 @@ int main(){
                 }
                 getchar();
             }
+            printf("Field #%d:\n",field++);
 
             int count = 0,leftj,rightj;
             for(int i = 0;i <n;i++){
                 for(int j = 0;j <m;j++){
 
-                    if(str[i][j] =='*'){
-                        printf("%c",str[i][j]);
-                    }
-
-                    
                     if(str[i][j] =='.'){
 
                         leftj = j-1;                         //左边三排
@@ -66,22 +65,22 @@ int main(){
                         }
                         printf("%d",count);
                         count = 0;
-                    }  
+                    }   
 
-                    
+
+                    else{
+                        printf("%c",str[i][j]);
+                    }                  
                 }
                 printf("\n");
             }
-
         }
-        
-
-        
-        
+        printf("\n");
     }
 
     return 0;
 }
+
 
 
 
